@@ -1,3 +1,4 @@
+
 class Coffee
 
   attr_accessor :price
@@ -13,6 +14,10 @@ class Coffee
   def price
     @price ||= 1.00
   end
+end
+
+RSpec.configure do |config|
+  config.example_status_persistence_file_path = 'spec/examples.txt'
 end
 
 
