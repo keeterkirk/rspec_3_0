@@ -14,6 +14,14 @@ class Coffee
   def price
     @price ||= 1.00
   end
+
+  def color
+    ingredients.include?(:milk) ? :light : :dark
+  end
+
+  def temperature
+    ingredients.include?(:milk) ? 190.0 : 205.0
+  end
 end
 
 RSpec.configure do |config|
@@ -39,5 +47,17 @@ RSpec.describe 'A cup of coffee' do
     it 'costs $1.25' do
       expect(coffee.price).to eq(1.25)
     end
+
+    it 'is light in color' do
+      expect(coffee.color).to be(:light)
+    end
+
+    it 'is cooler than 200 degrees Fahrenheit' do
+      expect(coffee.temperature).to be < 200.00
+    end
+
+
   end
+
+
 end
